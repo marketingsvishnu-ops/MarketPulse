@@ -1,345 +1,386 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AllPanel 7 ID</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
+    <title>MotivateMe - Motivation Blog</title>
 
-body{
-    background:#042b23;
-    color:#fff;
-    overflow-x:auto;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.container{
-    display:flex;
-    min-height:100vh;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            color: #222;
+        }
 
-.demo{
-    width:70%;
-    background:#111;
-}
+        /* NAVBAR */
 
-iframe{
-    width:100%;
-    height:100vh;
-    border:none;
-}
+        header {
+            background: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px #00000010;
+        }
 
-.right{
-    width:30%;
-    padding:30px 22px;
-    background:linear-gradient(180deg,#008f73,#043d33);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #e85d04;
+        }
 
-.box{
-    width:100%;
-    background:#07110f;
-    border:1px solid #00e8ad;
-    border-radius:22px;
-    padding:24px 18px;
-    text-align:center;
-    box-shadow:0 0 30px rgba(0,232,173,.35);
-}
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 25px;
+        }
 
-.badge{
-    display:inline-block;
-    background:#00e8ad;
-    color:#001f18;
-    padding:10px 22px;
-    border-radius:30px;
-    font-weight:bold;
-    margin-bottom:16px;
-}
+        nav a:hover {
+            color: #e85d04;
+        }
 
-h1{
-    color:#00e8ad;
-    font-size:30px;
-    text-transform:uppercase;
-    margin-bottom:12px;
-}
+        /* HERO */
 
-.sub{
-    color:#ddd;
-    line-height:1.6;
-    margin-bottom:18px;
-    font-size:16px;
-}
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: #fff1e6;
+        }
 
-.process{
-    text-align:left;
-    background:linear-gradient(180deg,#07110f,#06483b);
-    border:1px solid #00e8ad;
-    border-radius:16px;
-    padding:18px;
-    margin:18px 0;
-}
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
 
-.process h2{
-    color:#00e8ad;
-    font-size:20px;
-    margin-bottom:12px;
-    text-align:center;
-}
+        .hero h1 span {
+            color: #e85d04;
+        }
 
-.process h3{
-    color:#fff;
-    font-size:18px;
-    margin:16px 0 8px;
-}
+        .hero p {
+            color: #666;
+            font-size: 18px;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.6;
+        }
 
-.process p,
-.process li{
-    color:#ddd;
-    font-size:15px;
-    line-height:1.6;
-}
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 25px;
+            background: #e85d04;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
 
-.process ol{
-    padding-left:20px;
-}
+        /* BLOG */
 
-.manual-whatsapp,
-.signup{
-    display:block;
-    background:#00e8ad;
-    color:#001f18;
-    text-decoration:none;
-    padding:15px;
-    border-radius:14px;
-    font-size:20px;
-    font-weight:bold;
-    text-align:center;
-    box-shadow:0 0 18px rgba(0,232,173,.4);
-}
+        .container {
+            width: 85%;
+            max-width: 1100px;
+            margin: 60px auto;
+        }
 
-.manual-whatsapp{
-    margin:14px 0 8px;
-}
+        .container h2 {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 35px;
+        }
 
-.signup{
-    margin-top:16px;
-}
+        .blogs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
 
-.manual-whatsapp:hover,
-.signup:hover{
-    background:#00c996;
-}
+        .blog {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px #00000010;
+            transition: 0.3s;
+        }
 
-.features{
-    display:grid;
-    gap:12px;
-    margin:22px 0 18px;
-}
+        .blog:hover {
+            transform: translateY(-5px);
+        }
 
-.feature{
-    background:linear-gradient(90deg,#092a24,#06483b);
-    border:1px solid #00e8ad;
-    border-radius:14px;
-    padding:14px;
-    font-size:17px;
-    font-weight:bold;
-}
+        .blog-img {
+            height: 180px;
+            background: #e85d04;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 45px;
+        }
 
-.feature span{
-    color:#00e8ad;
-}
+        .blog-content {
+            padding: 25px;
+        }
 
-.website-row{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    margin-top:18px;
-    font-weight:bold;
-    flex-wrap:wrap;
-}
+        .blog-content small {
+            color: #e85d04;
+            font-weight: bold;
+        }
 
-.website-row a{
-    text-decoration:none;
-    word-break:break-word;
-}
+        .blog-content h3 {
+            margin: 12px 0;
+            font-size: 22px;
+        }
 
-.website,
-.whatsapp-small{
-    color:#00e8ad;
-}
+        .blog-content p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 14px;
+        }
 
-.trust{
-    margin-top:18px;
-    color:#ccc;
-    line-height:1.7;
-}
+        .read {
+            display: inline-block;
+            margin-top: 18px;
+            color: #e85d04;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-.footer{
-    margin-top:20px;
-    color:#888;
-    font-size:12px;
-}
+        /* QUOTE */
 
-/* MOBILE — Laptop jaisa same layout */
-@media(max-width:768px){
+        .quote {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+            margin-top: 70px;
+        }
 
-    body{
-        overflow-x:auto;
-    }
+        .quote h2 {
+            font-size: 35px;
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.4;
+        }
 
-    .container{
-        width:1200px;
-        min-width:1200px;
-        flex-direction:row;
-    }
+        .quote p {
+            margin-top: 20px;
+            color: #aaa;
+        }
 
-    .demo{
-        width:70%;
-    }
+        /* FOOTER */
 
-    .right{
-        width:30%;
-        padding:25px 18px;
-    }
+        footer {
+            background: white;
+            text-align: center;
+            padding: 25px;
+            color: #777;
+        }
 
-    iframe{
-        height:100vh;
-        min-height:700px;
-    }
+        /* MOBILE */
 
-    h1{
-        font-size:28px;
-    }
+        @media (max-width: 800px) {
 
-    .manual-whatsapp,
-    .signup{
-        font-size:19px;
-    }
-}
-</style>
+            .blogs {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .quote h2 {
+                font-size: 27px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="container">
+    <!-- NAVBAR -->
 
-    <div class="demo">
-        <iframe src="https://www.allpanel7.com/?code=MAHA1991"></iframe>
-    </div>
+    <header>
 
-    <div class="right">
+        <div class="logo">
+            MotivateMe
+        </div>
 
-        <div class="box">
+        <nav>
+            <a href="#">Home</a>
+            <a href="#blogs">Blogs</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
-            <div class="badge">ALLPANEL7</div>
+    </header>
 
-            <h1>Get Your AllPanel7 ID</h1>
 
-            <p class="sub">
-                Choose the registration method that's most convenient for you and get started with AllPanel 7 today!
-            </p>
+    <!-- HERO -->
 
-            <div class="process">
+    <section class="hero">
 
-                <h2>Get Your AllPanel 7 ID – Your Choice!</h2>
+        <h1>
+            Believe in <span>Yourself.</span>
+        </h1>
 
-                <h3>✅ Manual ID</h3>
+        <p>
+            Simple thoughts, powerful ideas and daily motivation
+            to help you become a better version of yourself.
+        </p>
 
-                <p>
-                    Click the <strong>"WhatsApp Now"</strong> button and our team will create your ID for you.
-                </p>
+        <a href="#blogs" class="btn">
+            Read Our Blogs
+        </a>
 
-                <a class="manual-whatsapp"
-                   href="https://wa.me/+917980303785?text=Hello%20I%20want%20new%20manual%20ID"
-                   target="_blank">
-                    📲 WhatsApp Now
-                </a>
+    </section>
 
-                <h3>✅ Self-Registration</h3>
 
-                <p>
-                    Click the <strong>"Sign Up"</strong> button and follow these simple steps:
-                </p>
+    <!-- BLOG POSTS -->
 
-                <ol>
-                    <li>Enter your mobile number.</li>
-                    <li>Create your username.</li>
-                    <li>Create your password and confirm it.</li>
-                    <li>The Signup Code is pre-filled as <strong>MAHA1991</strong>.</li>
-                    <li>Click <strong>"Sign Up"</strong> to complete your registration.</li>
-                </ol>
+    <section class="container" id="blogs">
 
-                <a class="signup"
-                   href="https://www.allpanel7.com/?code=MAHA1991"
-                   target="_blank">
-                    📝 Sign Up
-                </a>
+        <h2>Latest Blogs</h2>
 
-            </div>
+        <div class="blogs">
 
-            <div class="features">
+            <div class="blog">
 
-                <div class="feature">
-                    Minimum Deposit:
-                    <span>₹100 Only</span>
+                <div class="blog-img">
+                    💪
                 </div>
 
-                <div class="feature">
-                    Welcome Bonus:
-                    <span>10%</span>
-                </div>
+                <div class="blog-content">
 
-                <div class="feature">
-                    Auto and Manual Service:
-                    <span>Available</span>
-                </div>
+                    <small>Motivation</small>
 
-                <div class="feature">
-                    Quick Help:
-                    <span>24/7 Support Available</span>
+                    <h3>
+                        Never Give Up
+                    </h3>
+
+                    <p>
+                        Difficult days are part of the journey.
+                        Keep going even when things feel impossible.
+                    </p>
+
+                    <a href="#" class="read">
+                        Read More →
+                    </a>
+
                 </div>
 
             </div>
 
-            <div class="website-row">
 
-                <a class="website"
-                   href="https://www.allpanel7.com/?code=MAHA1991"
-                   target="_blank">
-                    🌐 www.allpanel7.com/?code=MAHA1991
-                </a>
+            <div class="blog">
 
-                <a class="whatsapp-small"
-                   href="https://wa.me/+917980303785"
-                   target="_blank">
-                    💬 WhatsApp
-                </a>
+                <div class="blog-img">
+                    🎯
+                </div>
+
+                <div class="blog-content">
+
+                    <small>Success</small>
+
+                    <h3>
+                        Focus On Your Goals
+                    </h3>
+
+                    <p>
+                        Clear goals give your life direction.
+                        Focus on what really matters to you.
+                    </p>
+
+                    <a href="#" class="read">
+                        Read More →
+                    </a>
+
+                </div>
 
             </div>
 
-            <div class="trust">
-                ✅ Trusted Manual Support<br>
-                ✅ Simple Process<br>
-                ✅ Fast Response
-            </div>
 
-            <div class="footer">
-                18+ Only | Play Responsibly | Follow Your Local Laws | T&amp;C Apply
+            <div class="blog">
+
+                <div class="blog-img">
+                    🌱
+                </div>
+
+                <div class="blog-content">
+
+                    <small>Growth</small>
+
+                    <h3>
+                        Become Better Every Day
+                    </h3>
+
+                    <p>
+                        You don't have to become perfect.
+                        Just try to become a little better every day.
+                    </p>
+
+                    <a href="#" class="read">
+                        Read More →
+                    </a>
+
+                </div>
+
             </div>
 
         </div>
 
-    </div>
+    </section>
 
-</div>
+
+    <!-- QUOTE -->
+
+    <section class="quote">
+
+        <h2>
+            "Success is the sum of small efforts,
+            repeated day after day."
+        </h2>
+
+        <p>
+            — Keep Moving Forward
+        </p>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="container" id="about">
+
+        <h2>About This Blog</h2>
+
+        <p style="text-align:center; max-width:700px; margin:auto; color:#666; line-height:1.8;">
+            MotivateMe is a simple motivation blog created to
+            share positive thoughts, practical advice and
+            inspiring stories that can help you move forward.
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer id="contact">
+
+        © 2026 MotivateMe. All Rights Reserved.
+
+    </footer>
 
 </body>
 </html>
+```
